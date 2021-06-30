@@ -17,18 +17,21 @@
       <input type="radio" value="sell" id="sell"  name="positionType" />
       <label for="Sell">Sell</label>
 
-      <input type="number" id="entryLevel"  placeholder="Entry level" />
+      <input type="number" id="entryLevel" required placeholder="Entry level" />
 
-      <input type="number" id="Target"  placeholder="Target" />
+      <input type="number" id="Target" required placeholder="Target" />
 
-      <input type="number" id="sl"  placeholder="SL" />
+      <input type="number" id="sl" required placeholder="SL" />
 
-      <input type="number" id="Quantity"  placeholder="Quantity" />
+      <input type="number" id="Quantity" required placeholder="Quantity" />
 
-      <input type="text" id="reason"  placeholder="Reasons for trade" />
+      <input type="text" id="reason" required placeholder="Reasons for trade" />
 
       <input type="submit" id="button"  value="Add to journal" />
     </form>
+    
+    <br><br>
+    <h3 style="text-align: center">journal</h3>
     <table id="displayTable">
       <tr>
         <th>Date</th>

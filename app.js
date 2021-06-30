@@ -28,7 +28,7 @@ if(entries)
         const tr = document.createElement("tr");
             entry.Profit=parseFloat(data.High-entry.entryLevel).toFixed(2)
             entry.NetProfit=parseFloat(entry.Profit*entry.Quantity).toFixed(2)
-            entry.Profit_percent=(entry.Profit/entry.entryLevel)*100;
+            entry.Profit_percent=parseFloat((entry.Profit/entry.entryLevel)*100).toFixed(2);
         tr.innerHTML = `
           
           <td>${entry.day}</td>
@@ -68,7 +68,9 @@ form.onsubmit = (e) => {
 
 addHTML = (High, Low, Cmp) => {
   const tr = document.createElement("tr");
-
+  Profit=parseFloat(High-entryLevel.value).toFixed(2)
+  NetProfit=parseFloat(Profit*Quantity.value).toFixed(2)
+  Profit_percent=parseFloat((Profit/entryLevel.value)*100).toFixed(2);
   tr.innerHTML = `
 
 <td>${day}</td>
@@ -82,9 +84,9 @@ addHTML = (High, Low, Cmp) => {
 <td>${Cmp}</td>
 <td>${(Remarks = 0)}</td>
 <td>${(ExitPrice = 0)}</td>
-<td>${(Profit = 0)}</td>
-<td>${(NetProfit = 0)}</td>
-<td>${(Profit_percent = 0)}</td>
+<td>${Profit }</td>
+<td>${NetProfit }</td>
+<td>${Profit_percent }</td>
 <td>${(TradeReason = 0)}</td>
 <td>${(Learning = 0)}</td>
 
