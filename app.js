@@ -13,17 +13,21 @@ const displayTable = document.getElementById("displayTable");
 let day = new Date().toLocaleDateString();
 
 const entries = JSON.parse(localStorage.getItem("allData"));
+//api
+//array of  data--->map
 //console.log(entries)
 //entries.map(entry=>console.log(entry.StockName))
-entries.map((entry) => {
+if(entries)
+{
+  entries.map((entry) => {
 
 
     const data = fetch(`http://localhost:4000/getData/:${entry.StockName}`)
     .then((response) => response.json())
     .then((data) => {
         const tr = document.createElement("tr");
-            entry.Profit=data.High-entry.entryLevel
-            entry.NetProfit=entry.Profit*entry.Quantity
+            entry.Profit=parseFloat(data.High-entry.entryLevel).toFixed(2)
+            entry.NetProfit=parseFloat(entry.Profit*entry.Quantity).toFixed(2)
             entry.Profit_percent=(entry.Profit/entry.entryLevel)*100;
         tr.innerHTML = `
           
@@ -48,30 +52,8 @@ entries.map((entry) => {
         displayTable.appendChild(tr);
     });
 })
-//   const tr = document.createElement("tr");
+}
 
-//   tr.innerHTML = `
-    
-//     <td>${entry.day}</td>
-//     <td>${entry.StockName}</td>
-//     <td>${entry.entryLevel}</td>
-//     <td>${entry.Target}</td>
-//     <td>${entry.sl}</td>
-//     <td>${entry.Quantity}</td>
-//     <td>${entry.High}</td>
-//     <td>${entry.Low}</td>
-//     <td>${entry.Cmp}</td>
-//     <td>${entry.Remarks}</td>
-//     <td>${entry.ExitPrice}</td>
-//     <td>${entry.Profit}</td>
-//     <td>${entry.NetProfit}</td>
-//     <td>${entry.Profit_percent}</td>
-//     <td>${entry.TradeReason}</td>
-//     <td>${entry.Learning}</td>
-    
-//     `;
-//   displayTable.appendChild(tr);
-// });
 
 form.onsubmit = (e) => {
   e.preventDefault();
@@ -133,8 +115,8 @@ const addToLocalStorage = (High, Low, Cmp) => {
     TradeReason: TradeReason,
     Learning: Learning,
   };
-  localStorage.setItem("data", JSON.stringify(data));
+  //localStorage.setItem("data", JSON.stringify(data));
   // Save allEntries back to local storage
   existingData.push(data);
-  localStorage.setItem("allData", JSON.stringify(existingData));
+  localStorage.setItem("allData", JSON.stringify(existingData));//overwrites
 };
