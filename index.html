@@ -1,20 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Traders journal</title>
-</head>
-<body>
-    <form>
-        <input type="text" placeholder="stockName" id="stockName">
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <form id="input-form">
+      <input type="text" id="StockName" required placeholder="stockName" />
+
+      <input type="radio" value="buy" id="buy"  name="positionType" />
+      <label for="buy">Buy</label>
+
+      <input type="radio" value="sell" id="sell"  name="positionType" />
+      <label for="Sell">Sell</label>
+
+      <input type="number" id="entryLevel"  placeholder="Entry level" />
+
+      <input type="number" id="Target"  placeholder="Target" />
+
+      <input type="number" id="sl"  placeholder="SL" />
+
+      <input type="number" id="Quantity"  placeholder="Quantity" />
+
+      <input type="text" id="reason"  placeholder="Reasons for trade" />
+
+      <input type="submit" id="button"  value="Add to journal" />
     </form>
-       
-  
-    <button id="button">
-        submit
-    </button>
-</body>
-<script src="./app.js"></script>
+    <table id="displayTable">
+      <tr>
+        <th>Date</th>
+        <th>StockName</th>
+        <th>Entry</th>
+        <th>Target</th>
+        <th>Sl</th>
+        <th>Quantity</th>
+        <th>High</th>
+        <th>Low</th>
+        <th>Cmp</th>
+        <th>Remarks</th>
+        <th>Exit Price</th>
+        <th>Profit</th>
+        <th>Net Profit</th>
+        <th>Profit %</th>
+        <th>Trade Reason</th>
+        <th>Learning</th>
+      </tr>
+    </table>
+  </body>
+  <script src="./app.js"></script>
+ 
 </html>

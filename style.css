@@ -1,0 +1,22 @@
+body{
+    color: red;
+}
+
+table {
+    border: 2px solid black;
+    border-radius: 5px;
+    
+}
+
+table th{
+   /* border-left: 2px solid black;*/
+    width: 85px;
+}
+table tr{
+   /* display: flex;*/
+   /* border-left: 2px solid black;
+    width: 85px;*/
+    margin-left: 100px;
+    padding-left: 100px;
+    text-align: center;
+}
